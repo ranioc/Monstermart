@@ -249,7 +249,7 @@ bar_chart_bottom_products = alt.Chart(bottom_10_products).mark_bar(color='salmon
 # Menampilkan plot di Streamlit
 st.altair_chart(bar_chart_bottom_products, use_container_width=True)
 
-# st.write(f'<div style="text-align: justify">Bingung ini termasuk loss (kerugian) atau bukan ya(?) soalnya sales cost lebih gede dari sales revenue, jadinya profitnya minus.</div>', unsafe_allow_html=True)
+st.write(f'<div style="text-align: justify">Berdasarkan grafik tersebut, ditemukan bahwa produk hanya menghasilkan gross profit yang sangat sedikit dalam penjualan satu bulan. Bahkan, produk YOUVIT Multivitamin dijual lebih murah dari harga modal produk karena tidak laku di pasaran, sehingga terdapat kerugian sebesar dua ribu rupiah.</div>', unsafe_allow_html=True)
 # st.markdown("<br><br>", unsafe_allow_html=True)
 
 ##################################################################################################

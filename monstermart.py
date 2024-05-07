@@ -9,7 +9,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 profit_trend = pd.read_csv("Profit Trend Feb.csv")
 profit_by_product = pd.read_csv("Profit By Product Feb.csv")
-profit_by_machine = pd.read_csv("Profit By Machine Feb.csv")
+profit_by_machine = pd.read_csv("Revenue By Machine Feb.csv")
 
 total_sales_revenue = profit_by_product['Sales Revenue'].sum()
 total_gross_profit = profit_by_product['Gross Profit'].sum()

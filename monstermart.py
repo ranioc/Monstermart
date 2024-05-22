@@ -5,9 +5,11 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 st.title('Analisis Gross Profit Vending Machine Monstermart Periode Februari 2024')
-st.markdown("<br>", unsafe_allow_html=True)
+
 if st.button('Home'):
     st.markdown('[Click here to go to Home](https://22ndmay-dpn5dfogubnbsunxhffucm.streamlit.app/)')
+
+st.markdown("<br>", unsafe_allow_html=True)
 
 profit_trend = pd.read_csv("Profit Trend Feb.csv")
 profit_by_product = pd.read_csv("Profit By Product Feb.csv")

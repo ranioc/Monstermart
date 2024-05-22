@@ -120,6 +120,32 @@ st.markdown("<br><br>", unsafe_allow_html=True)
 
 ####################################################################################
 
+# Menambahkan kolom hari dalam minggu
+profit_trend['Day of Week'] = profit_trend['Day'].dt.dayofweek  # 0=Monday, 1=Tuesday, ..., 6=Sunday
+
+# Menghitung selisih penjualan per hari
+profit_trend['Sales Revenue Diff'] = profit_trend['Sales Revenue'].diff()
+
+# Menghitung rata-rata selisih penjualan per hari dalam minggu
+avg_diff_by_day = profit_trend.groupby('Day of Week')['Sales Revenue Diff'].mean()
+
+# Set up the Streamlit app
+st.title('Rata-Rata Selisih Penjualan Harian (Senin-Minggu)')
+st.write('Visualisasi rata-rata selisih penjualan harian berdasarkan data profit_trend.')
+
+# Plotting the results
+fig, ax = plt.subplots(figsize=(10, 6))
+avg_diff_by_day.plot(kind='bar', color='skyblue', ax=ax)
+ax.set_title('Rata-Rata Selisih Penjualan Harian (Senin-Minggu)')
+ax.set_xlabel('Hari dalam Minggu')
+ax.set_ylabel('Rata-Rata Selisih Penjualan')
+ax.set_xticks(range(7))
+ax.set_xticklabels(['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'])
+ax.grid(axis='y', linestyle='--', alpha=0.7)
+st.pyplot(fig)
+
+#######################################################################################
+
 st.subheader("Bottom 15 Machines By Sales February 2024")
 
 # Mengambil bottom 15 mesin dengan penjualan terendah

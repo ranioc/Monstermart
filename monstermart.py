@@ -104,8 +104,7 @@ profit_trend['Sales Revenue Diff'] = profit_trend['Sales Revenue'].diff()
 avg_diff_by_day = profit_trend.groupby('Day of Week')['Sales Revenue Diff'].mean()
 
 # Set up the Streamlit app
-st.title('Rata-Rata Selisih Penjualan Harian (Senin-Minggu)')
-st.write('Visualisasi rata-rata selisih penjualan harian berdasarkan data profit_trend.')
+st.subheader("Average Daily Sales Difference (Monday-Sunday)")
 
 # Plotting the results
 fig, ax = plt.subplots(figsize=(10, 6))
@@ -116,7 +115,11 @@ ax.set_ylabel('Rata-Rata Selisih Penjualan')
 ax.set_xticks(range(7))
 ax.set_xticklabels(['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'])
 ax.grid(axis='y', linestyle='--', alpha=0.7)
+ax.tick_params(axis='x', rotation=0)
 st.pyplot(fig)
+
+st.write(f'<div style="text-align: justify">Rata-rata selisih penjualan setiap harinya terlihat turun paling besar pada hari Minggu dan naik paling drastis di hari Senin.</div>', unsafe_allow_html=True)
+st.markdown("<br><br>", unsafe_allow_html=True)
 
 ##########################################################################
 

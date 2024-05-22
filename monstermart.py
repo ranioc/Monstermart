@@ -17,7 +17,7 @@ gross_profit_percentage = (total_gross_profit / total_sales_revenue) * 100
 
 # Fungsi untuk mengonversi angka menjadi format rupiah
 def format_rupiah(angka):
-    formatted_angka = "Rp{:,.0f}".format(angka)
+    formatted_angka = "Rp{:.0f}".format(angka)
     return formatted_angka
 
 # Fungsi untuk mengonversi angka menjadi persentase dengan 2 digit di belakang koma
@@ -33,15 +33,18 @@ formatted_total_gross_profit = format_rupiah(total_gross_profit)
 formatted_gross_profit_percentage = format_percentage(gross_profit_percentage)
 
 # # Menghitung total kerugian
-# total_loss = profit_by_product[profit_by_product['Gross Profit'] < 0]['Gross Profit'].sum()
-# formatted_loss = format_rupiah(total_loss)
-# st.metric("Loss", value=formatted_loss)
 
 # Menampilkan metric dengan nilai yang telah diformat
-sales_feb, profit_feb, percentage_feb = st.columns(3)
+
+sales_feb, loss_feb = st.columns(2)
 
 with sales_feb:
     st.metric("Total Sales", value=formatted_total_sales_revenue)
+
+with loss_feb:
+    st.metric("Total Loss", value="Rp2.000")
+
+profit_feb, percentage_feb = st.columns(2)
 
 with profit_feb:
     st.metric("Total Gross Profit", value=formatted_total_gross_profit)
@@ -249,21 +252,3 @@ bar_chart_bottom_products = alt.Chart(bottom_10_products).mark_bar(color='salmon
 st.altair_chart(bar_chart_bottom_products, use_container_width=True)
 
 st.write(f'<div style="text-align: justify">Berdasarkan grafik tersebut, ditemukan bahwa beberapa produk hanya menghasilkan gross profit yang sangat sedikit dalam penjualan satu bulan. Bahkan, produk YOUVIT Multivitamin dijual lebih murah dari harga modal produk karena tidak laku di pasaran, sehingga terdapat kerugian sebesar dua ribu rupiah.</div>', unsafe_allow_html=True)
-# st.markdown("<br><br>", unsafe_allow_html=True)
-
-##################################################################################################
-
-# st.subheader("Test")
-
-# # Membuat visualisasi dengan Altair
-# bar_chart_top = alt.Chart(sorted_profit_by_machine).mark_bar(color='skyblue').encode(
-#     y=alt.Y('Machines:N', title='Machines', sort='-x'),  # Mengurutkan label sumbu y secara descending berdasarkan jumlah Sales
-#     x=alt.X('Sales:Q', title='Sales (IDR)', axis=alt.Axis(format=',.0f')),  # Format sumbu x sebagai rupiah
-#     tooltip=['Machines:N', 'Sales:Q']
-# ).configure_axis(
-#     labelFontSize=10,  # Ukuran font label sumbu
-#     titleFontSize=12  # Ukuran font judul sumbu
-# )
-
-# # Menampilkan plot di Streamlit
-# st.altair_chart(bar_chart_top, use_container_width=True)

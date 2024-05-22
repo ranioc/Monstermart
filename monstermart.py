@@ -40,7 +40,7 @@ formatted_gross_profit_percentage = format_percentage(gross_profit_percentage)
 # CSS untuk mengatur ukuran teks metric
 smaller_text_css = """
 <style>
-.small-font {
+.metric-value small {
     font-size: 12px !important;
 }
 </style>
@@ -49,23 +49,17 @@ smaller_text_css = """
 # Menambahkan CSS ke Streamlit
 st.markdown(smaller_text_css, unsafe_allow_html=True)
 
-# Menampilkan metrics dengan ukuran teks lebih kecil dalam kolom
+# Menampilkan metrics dengan ukuran teks nilai yang lebih kecil dalam kolom
 sales_feb, profit_feb, percentage_feb = st.columns(3)
 
 with sales_feb:
-    st.markdown('<div class="small-font">', unsafe_allow_html=True)
-    st.metric("Total Sales", value=formatted_total_sales_revenue)
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.metric("Total Sales", value=f"<small>{formatted_total_sales_revenue}</small>")
 
 with profit_feb:
-    st.markdown('<div class="small-font">', unsafe_allow_html=True)
-    st.metric("Total Gross Profit", value=formatted_total_gross_profit)
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.metric("Total Gross Profit", value=f"<small>{formatted_total_gross_profit}</small>")
 
 with percentage_feb:
-    st.markdown('<div class="small-font">', unsafe_allow_html=True)
-    st.metric("Gross Profit Percentage", value=formatted_gross_profit_percentage)
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.metric("Gross Profit Percentage", value=f"<small>{formatted_gross_profit_percentage}</small>")
 
 st.markdown("<br>", unsafe_allow_html=True)
 

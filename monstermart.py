@@ -183,58 +183,58 @@ st.markdown("<br><br>", unsafe_allow_html=True)
 
 ##################################################################################################
 
-st.subheader("Top 15 Machines By Quantity Sold February 2024")
+# st.subheader("Top 15 Machines By Quantity Sold February 2024")
 
-# Mengurutkan data berdasarkan jumlah terjual secara descending
-sorted_profit_by_machine = profit_by_machine.sort_values(by='Qty Sold', ascending=False)
+# # Mengurutkan data berdasarkan jumlah terjual secara descending
+# sorted_profit_by_machine = profit_by_machine.sort_values(by='Qty Sold', ascending=False)
 
-# Mengambil 15 mesin dengan jumlah terjual tertinggi
-top_15_machines_qty_sold = sorted_profit_by_machine.head(15)
+# # Mengambil 15 mesin dengan jumlah terjual tertinggi
+# top_15_machines_qty_sold = sorted_profit_by_machine.head(15)
 
-# Membuat visualisasi dengan Altair untuk top 15 machines by quantity sold
-bar_chart_top_qty_sold = alt.Chart(top_15_machines_qty_sold).mark_bar(color='skyblue').encode(
-    y=alt.Y('Machines:N', title='Machines', sort=None),  # Tidak mengurutkan label sumbu y
-    x=alt.X('Qty Sold:Q', title='Quantity Sold'),
-    tooltip=['Machines:N', 'Qty Sold:Q']
-).properties(
-    width=600,
-    height=400
-).configure_axis(
-    labelFontSize=10,  # Ukuran font label sumbu
-    titleFontSize=12  # Ukuran font judul sumbu
-)
+# # Membuat visualisasi dengan Altair untuk top 15 machines by quantity sold
+# bar_chart_top_qty_sold = alt.Chart(top_15_machines_qty_sold).mark_bar(color='skyblue').encode(
+#     y=alt.Y('Machines:N', title='Machines', sort=None),  # Tidak mengurutkan label sumbu y
+#     x=alt.X('Qty Sold:Q', title='Quantity Sold'),
+#     tooltip=['Machines:N', 'Qty Sold:Q']
+# ).properties(
+#     width=600,
+#     height=400
+# ).configure_axis(
+#     labelFontSize=10,  # Ukuran font label sumbu
+#     titleFontSize=12  # Ukuran font judul sumbu
+# )
 
-# Menampilkan plot di Streamlit
-st.altair_chart(bar_chart_top_qty_sold, use_container_width=True)
+# # Menampilkan plot di Streamlit
+# st.altair_chart(bar_chart_top_qty_sold, use_container_width=True)
 
-st.write(f'<div style="text-align: justify">Grafik di atas menandakan bahwa beberapa vending machine dengan penjualan tertinggi juga merupakan yang tertinggi dalam kuantitas terjual.</div>', unsafe_allow_html=True)
-st.markdown("<br><br>", unsafe_allow_html=True)
+# st.write(f'<div style="text-align: justify">Grafik di atas menandakan bahwa beberapa vending machine dengan penjualan tertinggi juga merupakan yang tertinggi dalam kuantitas terjual.</div>', unsafe_allow_html=True)
+# st.markdown("<br><br>", unsafe_allow_html=True)
 
-##################################################################################################
+# ##################################################################################################
 
-st.subheader("Bottom 15 Machines By Quantity Sold February 2024")
+# st.subheader("Bottom 15 Machines By Quantity Sold February 2024")
 
-# Mengambil 15 mesin dengan jumlah terjual terendah
-bottom_15_machines_qty_sold = sorted_profit_by_machine.tail(15)
+# # Mengambil 15 mesin dengan jumlah terjual terendah
+# bottom_15_machines_qty_sold = sorted_profit_by_machine.tail(15)
 
-# Membuat visualisasi dengan Altair untuk bottom 15 machines by quantity sold
-bar_chart_bottom_qty_sold = alt.Chart(bottom_15_machines_qty_sold).mark_bar(color='salmon').encode(
-    y=alt.Y('Machines:N', title='Machines', sort=None),  # Tidak mengurutkan label sumbu y
-    x=alt.X('Qty Sold:Q', title='Quantity Sold'),
-    tooltip=['Machines:N', 'Qty Sold:Q']
-).properties(
-    width=600,
-    height=400
-).configure_axis(
-    labelFontSize=10,  # Ukuran font label sumbu
-    titleFontSize=12  # Ukuran font judul sumbu
-)
+# # Membuat visualisasi dengan Altair untuk bottom 15 machines by quantity sold
+# bar_chart_bottom_qty_sold = alt.Chart(bottom_15_machines_qty_sold).mark_bar(color='salmon').encode(
+#     y=alt.Y('Machines:N', title='Machines', sort=None),  # Tidak mengurutkan label sumbu y
+#     x=alt.X('Qty Sold:Q', title='Quantity Sold'),
+#     tooltip=['Machines:N', 'Qty Sold:Q']
+# ).properties(
+#     width=600,
+#     height=400
+# ).configure_axis(
+#     labelFontSize=10,  # Ukuran font label sumbu
+#     titleFontSize=12  # Ukuran font judul sumbu
+# )
 
-# Menampilkan plot di Streamlit
-st.altair_chart(bar_chart_bottom_qty_sold, use_container_width=True)
+# # Menampilkan plot di Streamlit
+# st.altair_chart(bar_chart_bottom_qty_sold, use_container_width=True)
 
-st.write(f'<div style="text-align: justify">Grafik di atas menunjukkan 15 vending machine dengan kuantitas produk terjual paling sedikit dan berpotensi menjadi sumber kerugian, jika harus terus me-mantain biaya operasional dengan penjualan yang tidak banyak.</div>', unsafe_allow_html=True)
-st.markdown("<br><br>", unsafe_allow_html=True)
+# st.write(f'<div style="text-align: justify">Grafik di atas menunjukkan 15 vending machine dengan kuantitas produk terjual paling sedikit dan berpotensi menjadi sumber kerugian, jika harus terus me-mantain biaya operasional dengan penjualan yang tidak banyak.</div>', unsafe_allow_html=True)
+# st.markdown("<br><br>", unsafe_allow_html=True)
 
 ##################################################################################################
 

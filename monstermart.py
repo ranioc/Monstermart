@@ -64,7 +64,7 @@ st.subheader("Daily Trend of General Gross Profit and Quantity Sold")
 
 def plot_trend(profit_trend):
     # Membuat plot untuk quantity sold
-    qty_sold_plot = alt.Chart(profit_trend).mark_line(color='orange').encode(
+    qty_sold_plot = alt.Chart(profit_trend).mark_line(point=True, color='orange').encode(
         x='Day:T',
         y=alt.Y('Qty Sold:Q', title='Quantity Sold', axis=alt.Axis(grid=False)),  # Menghilangkan garis grid
         tooltip=['Day:T', 'Qty Sold:Q']

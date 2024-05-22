@@ -88,40 +88,6 @@ st.markdown("<br><br>", unsafe_allow_html=True)
 
 ##########################################################################
 
-def calculate_average_sales(profit_trend):
-    # Menambahkan kolom hari dalam minggu
-    profit_trend['Weekday'] = profit_trend['Day'].dt.day_name()
-    
-    # Menghitung rata-rata Qty Sold per hari
-    avg_sales_per_day = profit_trend.groupby('Weekday')['Qty Sold'].mean().reindex([
-        'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
-    ]).reset_index()
-    
-    return avg_sales_per_day
-
-def plot_average_sales_trend(avg_sales_per_day):
-    # Membuat plot untuk rata-rata quantity sold per hari
-    avg_sales_plot = alt.Chart(avg_sales_per_day).mark_bar(color='lightblue').encode(
-        x=alt.X('Weekday', sort=['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']),
-        y=alt.Y('Qty Sold', title='Average Quantity Sold'),
-        tooltip=['Weekday', 'Qty Sold']
-    )
-
-    # Menampilkan plot di Streamlit
-    st.altair_chart(avg_sales_plot, use_container_width=True)
-
-# Memanggil fungsi untuk menghitung rata-rata penjualan harian
-avg_sales_per_day = calculate_average_sales(profit_trend)
-
-# Memanggil fungsi untuk menampilkan grafik rata-rata penjualan harian
-plot_average_sales_trend(avg_sales_per_day)
-
-# Deskripsi mengenai tren penjualan
-st.write(f'<div style="text-align: justify">Trend rata-rata penjualan produk setiap hari menunjukkan bagaimana penjualan bervariasi dari Senin hingga Minggu. Dengan memahami pola ini, kita dapat mengidentifikasi hari-hari dengan penjualan rendah dan mungkin mengambil tindakan untuk meningkatkan penjualan pada hari-hari tersebut.</div>', unsafe_allow_html=True)
-st.markdown("<br><br>", unsafe_allow_html=True)
-
-##########################################################################
-
 st.subheader("Top 15 Machines By Sales February 2024")
 
 # Mengurutkan data berdasarkan profit secara descending

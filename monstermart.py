@@ -42,7 +42,7 @@ with sales_feb:
     st.metric("Total Sales", value=formatted_total_sales_revenue)
 
 with loss_feb:
-    st.metric("Total Loss", value="Rp2,000")
+    st.metric("Total Loss", value="Rp1,658,821")
 
 profit_feb, percentage_feb = st.columns(2)
 

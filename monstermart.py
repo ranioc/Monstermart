@@ -37,17 +37,35 @@ formatted_gross_profit_percentage = format_percentage(gross_profit_percentage)
 # formatted_loss = format_rupiah(total_loss)
 # st.metric("Loss", value=formatted_loss)
 
-# Menampilkan metric dengan nilai yang telah diformat
+# CSS untuk mengatur ukuran teks metric
+smaller_text_css = """
+<style>
+.small-font {
+    font-size: 12px !important;
+}
+</style>
+"""
+
+# Menambahkan CSS ke Streamlit
+st.markdown(smaller_text_css, unsafe_allow_html=True)
+
+# Menampilkan metrics dengan ukuran teks lebih kecil dalam kolom
 sales_feb, profit_feb, percentage_feb = st.columns(3)
 
 with sales_feb:
+    st.markdown('<div class="small-font">', unsafe_allow_html=True)
     st.metric("Total Sales", value=formatted_total_sales_revenue)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 with profit_feb:
+    st.markdown('<div class="small-font">', unsafe_allow_html=True)
     st.metric("Total Gross Profit", value=formatted_total_gross_profit)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 with percentage_feb:
+    st.markdown('<div class="small-font">', unsafe_allow_html=True)
     st.metric("Gross Profit Percentage", value=formatted_gross_profit_percentage)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
 

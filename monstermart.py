@@ -17,7 +17,7 @@ gross_profit_percentage = (total_gross_profit / total_sales_revenue) * 100
 
 # Fungsi untuk mengonversi angka menjadi format rupiah
 def format_rupiah(angka):
-    formatted_angka = "Rp{:..0f}".format(angka)
+    formatted_angka = "Rp{:,.0f}".format(angka)
     return formatted_angka
 
 # Fungsi untuk mengonversi angka menjadi persentase dengan 2 digit di belakang koma
@@ -42,7 +42,7 @@ with sales_feb:
     st.metric("Total Sales", value=formatted_total_sales_revenue)
 
 with loss_feb:
-    st.metric("Total Loss", value="Rp2.000")
+    st.metric("Total Loss", value="Rp2,000")
 
 profit_feb, percentage_feb = st.columns(2)
 

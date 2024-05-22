@@ -53,6 +53,7 @@ with percentage_feb:
     st.metric("Gross Profit Percentage", value=formatted_gross_profit_percentage)
 
 st.markdown("<br>", unsafe_allow_html=True)
+
 #################################################################
 
 st.subheader("Daily Trend of General Gross Profit and Quantity Sold")
@@ -86,7 +87,7 @@ def plot_trend(profit_trend):
 # Memanggil fungsi plot_trend dengan DataFrame profit_trend
 plot_trend(profit_trend)
 
-st.write(f'<div style="text-align: justify">Trend profit dan quantity produk terjual per harinya menunjukkan penjualan yang fluktuatif dan cenderung rendah pada hari minggu. Hal ini kemungkinan menandakan penjualan vending machine di area perkantoran dan sekolah yang sepi karena hari libur.</div>', unsafe_allow_html=True)
+st.write(f'<div style="text-align: justify">Trend profit dan quantity produk terjual per harinya menunjukkan penjualan yang fluktuatif.</div>', unsafe_allow_html=True)
 st.markdown("<br><br>", unsafe_allow_html=True)
 
 ##########################################################################
@@ -118,7 +119,7 @@ ax.grid(axis='y', linestyle='--', alpha=0.7)
 ax.tick_params(axis='x', rotation=0)
 st.pyplot(fig)
 
-st.write(f'<div style="text-align: justify">Rata-rata selisih penjualan setiap harinya terlihat turun paling besar pada hari Minggu dan naik paling drastis di hari Senin.</div>', unsafe_allow_html=True)
+st.write(f'<div style="text-align: justify">Rata-rata selisih penjualan setiap harinya terlihat turun paling besar pada hari Minggu dan naik paling drastis di hari Senin. Penjualan vending machine di area perkantoran dan sekolah kemungkinan sepi karena hari libur dan mulai ramai kembali pada hari kerja.</div>', unsafe_allow_html=True)
 st.markdown("<br><br>", unsafe_allow_html=True)
 
 ##########################################################################
